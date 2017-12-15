@@ -1,0 +1,30 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<metadata name="db2test" path="/shared/carolyn2/db2test" type="PROCEDURE" subtype="SQL_SCRIPT_PROCEDURE" changeToken="0">
+  <parameters></parameters>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <attribute name="Script" type="STRING">PROCEDURE db2test()
+BEGIN
+  -- Add your code here
+ENDPROCEDURE TestDb2scenario(OUT result PIPE (        TNL_ID					VARCHAR(11),		ETS_REGN_CD				VARCHAR(10),		QUANTITY_MAX			DECIMAL(31),		USD_NOTIONAL_VALUE_MAX	DECIMAL(31),		NOTIONAL_VALUE_MAX		DECIMAL(31)        )    )    BEGIN 	/*DECLARE counter INTEGER;			SELECT 	COUNT(*) INTO counterFROM /shared/pbrpt/DataSources/LNXD_OEDM/IDGDMR_REPORTS/DMR_MARDM_PDT_UTIL_BY_FLOW_LN(&apos;TNL00249474&apos;, &apos;2017-10-26&apos;, &apos;NY&apos;) DMR_MARDM_PDT_UTIL_BY_FLOW;       IF	counter &lt;&gt; 0 THEN*/       -- OPEN result FOR INSERT  INTO result       (TNL_ID					,		ETS_REGN_CD				,		QUANTITY_MAX			,		USD_NOTIONAL_VALUE_MAX	,		NOTIONAL_VALUE_MAX		        )            SELECT                 b.IN_PORTFOLIOID,                b.IN_REGION,				MAX(QUANTITY_MAX),				MAX(USD_NOTIONAL_VAL_MAX),				MAX(NOTIONAL_VAL_MAX)            FROM                      /shared/pbrpt/DataSources/LNXD_OEDM/IDGDMR_REPORTS/DMR_MARDM_PDT_UTIL_BY_FLOW_LN(&apos;TNL00249474&apos;, &apos;2017-10-26&apos;, &apos;NY&apos;) c            RIGHT OUTER JOIN				/shared/pbrpt/DataSources/LNXD_OEDM/IDGDMR_REPORTS/DMR_MARDM_PDT_LIMIT_BY_FLOW(&apos;TNL00249474&apos;,&apos;NY&apos;) b			ON				c.IN_PORTFOLIOID = b.IN_PORTFOLIOID AND c.IN_REGION = b.IN_REGION GROUP BY b.IN_PORTFOLIOID,b.IN_REGION;--END IF;END         </attribute>
+  <attribute name="creationDate" type="LONG">1513344337120</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="impactLevel" type="INTEGER">2</attribute>
+  <attribute name="impactMessage" type="STRING">Unable to parse SQL script:  expecting colon, found &apos;TestDb2scenario&apos;.  On line 4, column 14.
+    [script-1910041]</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1513344512740</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="native_only" type="STRING">false</attribute>
+  <attribute name="public_constants" type="NULL"/>
+  <attribute name="public_exceptions" type="NULL"/>
+  <attribute name="public_types" type="NULL"/>
+  <attribute name="references" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1513344337120</attribute>
+</metadata>
