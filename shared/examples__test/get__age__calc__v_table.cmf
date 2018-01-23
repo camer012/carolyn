@@ -20,7 +20,7 @@
       </element>
     </datatype>
   </dependency>
-  <dependency target="/shared/resources2/Utilities/calculations/calculateAge" type="PROCEDURE">
+  <dependency target="/shared/examples_test/calculateAge_f" type="PROCEDURE">
     <datatype type="PROCEDURE" refId="1">
       <element name="personBirthdayTimestamp" direction="IN">
         <datatype type="DATETIME"/>
@@ -34,7 +34,7 @@
     <datatype type="PROCEDURE" refId="1"></datatype>
   </dependency>
   <attribute name="SQL" type="STRING">SELECT 
-    calculateage(bd) myage
+    calculateAge(bd) myage
 FROM      
     /shared/examples_test/age_v age_v</attribute>
   <attribute name="creationDate" type="LONG">1516730043448</attribute>
@@ -44,7 +44,7 @@ FROM
   <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
   <attribute name="impactLevel" type="INTEGER">0</attribute>
   <attribute name="impactMessage" type="NULL"/>
-  <attribute name="lastModifiedDate" type="LONG">1516730106838</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1516731038356</attribute>
   <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
   <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
   <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
