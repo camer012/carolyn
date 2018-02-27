@@ -1,0 +1,39 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<metadata name="get_age_calc_v" path="/shared/Ben/examples_test/get_age_calc_v" type="TABLE" subtype="SQL_TABLE" changeToken="0" tableType="VIEW">
+  <columns>
+    <column name="myage" nullable="true">
+      <datatype type="INTEGER" minValue="-2147483648" maxValue="2147483647"/>
+      <security>
+        <owner user="admin" domain="composite"/>
+      </security>
+    </column>
+  </columns>
+  <indexes></indexes>
+  <foreignKeys></foreignKeys>
+  <security>
+    <owner user="admin" domain="composite"/>
+  </security>
+  <dependency target="/shared/Ben/examples_test/age_v" type="TABLE">
+    <datatype name="Tree" type="TREE" refId="1"></datatype>
+  </dependency>
+  <dependency target="/system/customfunctions/calculateAge" type="PROCEDURE">
+    <datatype name="Tree" type="TREE" refId="1"></datatype>
+  </dependency>
+  <attribute name="SQL" type="STRING">SELECT 
+    calculateAge(bd) myage
+FROM      
+    /shared/Ben/examples_test/age_v age_v</attribute>
+  <attribute name="creationDate" type="LONG">1516730043448</attribute>
+  <attribute name="creatorUserDomain" type="STRING">composite</attribute>
+  <attribute name="creatorUserId" type="INTEGER">-1973</attribute>
+  <attribute name="creatorUserName" type="STRING">admin</attribute>
+  <attribute name="explicitly.designed" type="BOOLEAN">false</attribute>
+  <attribute name="impactLevel" type="INTEGER">32</attribute>
+  <attribute name="impactMessage" type="STRING">&apos;calculateAge&apos; is not a recognized function.  On line 2, column 5.  [parser-2909505]</attribute>
+  <attribute name="lastModifiedDate" type="LONG">1516731038356</attribute>
+  <attribute name="lastModifiedUserDomain" type="STRING">composite</attribute>
+  <attribute name="lastModifiedUserId" type="INTEGER">-1973</attribute>
+  <attribute name="lastModifiedUserName" type="STRING">admin</attribute>
+  <attribute name="model" type="NULL"/>
+  <attribute name="resourceModifiedDateOnSourceCISSite" type="LONG">1516730043448</attribute>
+</metadata>
